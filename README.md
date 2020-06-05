@@ -13,3 +13,5 @@ HTML, Vanilla JS, CSS 연습용 웹사이트
 ### RESULT ( fitler by yellow 🟡  ) 
 ![스크린샷 2020-06-06 오전 12 21 20](https://user-images.githubusercontent.com/24672300/83894208-f4f1c700-a78b-11ea-832b-634724b411f1.png)
 
+#### 이미지 출처 및 프로젝트 정보 
+- [드림코딩 by 엘리](https://youtu.be/We2Kv1HMGvc)
