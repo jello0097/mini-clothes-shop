@@ -13,25 +13,25 @@ function render(filter = 'all'){
     for(clothes of AllClothes){
         if(filter === clothes.type || filter === clothes.color || filter === "all"){
             // 상품을 담을 
-            const item = document.createElement('div');
-            item.setAttribute("class" , "item");
-            item.setAttribute("type", clothes.type);
-            item.setAttribute("color", clothes.color);
+            const article = document.createElement('article');
+            article.setAttribute("class" , "item");
+            article.setAttribute("type", clothes.type);
+            article.setAttribute("color", clothes.color);
 
             // 상품 이미지와 설명 
             const img = document.createElement('img');
             const imgName = clothes.color+'_'+clothes.type;
             img.alt = imgName;
             img.src = 'imgs/'+imgName+'.png';
-            item.appendChild(img);
+            article.appendChild(img);
             
             const span = document.createElement('span');
             span.innerHTML = clothes.sex+', '+clothes.size+' size';
 
-            item.appendChild(img);
-            item.appendChild(span);
+            article.appendChild(img);
+            article.appendChild(span);
             // item table 안에 tr 넣기 
-            document.getElementById("items").appendChild(item);
+            document.getElementById("items").appendChild(article);
         }
     }
 }

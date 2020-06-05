@@ -1,5 +1,5 @@
 #items{
-    margin-top: 50px;
+    margin-top: 150px;
     width: inherit;
 }
 .item{
@@ -8,16 +8,70 @@
     margin: 5px;
     padding: 5px;
 }
+.item > span{
+    font-size: large;
+}
 .item > img{
     vertical-align: middle;
     padding: 10px;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
 }
 #logo{
     display: block;
     margin: 50px auto;
+    cursor: pointer;
 }
 body{
     width: 600px;
     margin: 0 auto;
-    background-color: rgb(30, 30, 34);
+    background-color: rgb(56, 56, 63);
+}
+.byType, .byColor{
+    display: inline; 
+}
+nav button{
+    border: none; 
+    cursor: pointer;
+    margin: 10px;
+}
+.byType > button{
+    float: left;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgb(56, 56, 63);
+}
+.byColor > button{
+    float: right;
+    width: 90px;
+    height: 60px;  
+    font-size: x-large;
+    border-radius: 10%;
+}
+button:hover{
+    transform: scale(1.20) perspective(1px);
+}
+button:focus{
+    outline: 0;
+}
+button[key="t"] {
+    background-image: url('imgs/blue_t.png');
+}
+button[key="p"] {
+    background-image: url('imgs/blue_p.png');
+}
+button[key="s"] {
+    background-image: url('imgs/blue_s.png');
+}
+button[key="blue"] {
+   background-color: rgb(42, 128, 207);
+}
+button[key="yellow"]{
+    background-color: rgb(255, 230, 0);
+}
+button[key="pink"]{
+    background-color: rgb(235, 142, 157);
 }

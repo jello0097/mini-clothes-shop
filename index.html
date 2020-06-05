@@ -9,15 +9,22 @@
         <script src="shop.js" defer></script>
     </head>
     <body>
-        <img id="logo" src="imgs/logo.png"/>
-        <div id="filters">
-            <button class="byType" key="t">tshirt</button>
-            <button class="byType" key="p">pants</button>
-            <button class="byType" key="s">skirt</button>
-            <button class="byColor" key="blue">blue</button>
-            <button class="byColor" key="yellow">yellow</button>
-            <button class="byColor" key="pink">pink</button>
-        </div>
-        <div id="items"></div>
+        <header><img id="logo" src="imgs/logo.png"/></header>
+        <nav id="filters">
+            <div class="byType">
+                <button key="t"></button>
+                <button key="p"></button>
+                <button key="s"></button>
+            </div> 
+            <div class="byColor">
+                <button key="blue">blue</button>
+                <button key="yellow">yellow</button>
+                <button key="pink">pink</button>
+            </div>
+        </nav>
+
+        <main>
+            <section id="items"></section>
+        </main>
     </body>
 </html>
