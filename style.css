@@ -1,6 +1,8 @@
 #items{
     margin-top: 150px;
     width: inherit;
+    height: 700px;
+    overflow: auto;
 }
 .item{
     border: 1px solid black;
