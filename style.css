@@ -1,6 +1,11 @@
+body{
+    background-color: rgb(56, 56, 63);
+}
+header, nav, main{
+    width: 600px;
+    margin: 0 auto;
+}
 #items{
-    margin-top: 150px;
-    width: inherit;
     height: 700px;
     overflow: auto;
 }
@@ -24,21 +29,16 @@
     display: block;
     margin: 50px auto;
 }
-body{
-    width: 600px;
-    margin: 0 auto;
-    background-color: rgb(56, 56, 63);
+#filters{
+    display: flex;
+    justify-content: space-between;
 }
-#byType, #byColor{
-    display: inline; 
-}
-nav button{
+#filters button{
     border: none; 
     cursor: pointer;
-    margin: 10px;
+    margin: 5px;
 }
 #byType > button{
-    float: left;
     width: 60px;
     height: 60px;
     background-size: contain;
@@ -46,11 +46,9 @@ nav button{
     background-color: rgb(56, 56, 63);
 }
 #byColor > button{
-    float: right;
     width: 90px;
     height: 60px;  
     font-size: x-large;
-    border-radius: 10%;
 }
 button:hover{
     transform: scale(1.20) perspective(1px);
