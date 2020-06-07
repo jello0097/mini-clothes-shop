@@ -1,63 +1,75 @@
-const AllClothes = new Array();
-
-function makeClothes(type, color, sex, size){
-    return {
-        type,
-        color,
-        sex,
-        size
+class Clothes{
+    constructor(color, sex, size){
+        this.color = color;
+        this.sex = sex;
+        this.size = size; 
+    }
+    getType(){
+        return this.constructor.name.toLowerCase();
     }
 }
-function render(filter = 'all'){
-    document.getElementById('items').innerHTML = "";
-    for(clothes of AllClothes){
-        if(filter === clothes.type || filter === clothes.color || filter === "all"){
-            // 상품을 담을 
+class Tshirt extends Clothes{}
+class Pants extends Clothes{}
+class Skirt extends Clothes{}
+
+class Shop{
+    items = new Array();
+    constructor(){
+        this.insert(new Pants('blue', 'female', 'large'));
+        this.insert(new Pants('pink', 'male', 'small'));
+        this.insert(new Pants('yellow', 'female', 'medium'));
+        this.insert(new Tshirt('blue', 'male', 'large'));
+        this.insert(new Tshirt('pink', 'female', 'small'));
+        this.insert(new Tshirt('yellow', 'male','medium'));
+        this.insert(new Skirt('blue', 'female','medium'));
+        this.insert(new Skirt('pink', 'male', 'small'));
+        this.insert(new Skirt('yellow', 'female', 'large'));       
+    }
+    insert(item){
+        this.items.push(item);
+    }
+    render(kind=null, filter=null){
+        console.log(`kind: ${kind}, filter: ${filter}`);
+        document.getElementById('items').innerHTML = "";
+
+        for(const item of this.items){
+            const type = item.getType();
+            const color = item.color;
+
+            if(kind === "byType" && type != filter)
+                continue;
+            if(kind === "byColor" && color != filter)
+                continue;
+
             const article = document.createElement('article');
             article.setAttribute("class" , "item");
-            article.setAttribute("type", clothes.type);
-            article.setAttribute("color", clothes.color);
+            article.setAttribute("type", type);
+            article.setAttribute("color", color);
 
-            // 상품 이미지와 설명 
             const img = document.createElement('img');
-            const imgName = clothes.color+'_'+clothes.type;
+            const imgName = item.color+'_'+type.substr(0,1);
             img.alt = imgName;
             img.src = 'imgs/'+imgName+'.png';
             article.appendChild(img);
             
             const span = document.createElement('span');
-            span.innerHTML = clothes.sex+', '+clothes.size+' size';
+            span.innerHTML = item.sex+', '+item.size+' size';
 
             article.appendChild(img);
             article.appendChild(span);
-            // item table 안에 tr 넣기 
-            document.getElementById("items").appendChild(article);
+            
+            document.getElementById("items").appendChild(article); 
         }
     }
 }
-function init(){
-    AllClothes.push(makeClothes('p', 'blue', 'female', 'large'));
-    AllClothes.push(makeClothes('p', 'pink', 'male', 'small'));
-    AllClothes.push(makeClothes('p', 'yellow', 'female', 'medium'));
-    AllClothes.push(makeClothes('s', 'blue', 'male', 'large'));
-    AllClothes.push(makeClothes('s', 'pink', 'female', 'small'));
-    AllClothes.push(makeClothes('s', 'yellow', 'male','medium'));
-    AllClothes.push(makeClothes('t', 'blue', 'female','medium'));
-    AllClothes.push(makeClothes('t', 'pink', 'male', 'small'));
-    AllClothes.push(makeClothes('t', 'yellow', 'female', 'large'));
-    render();
-}
-init();
 
-function filterClick(e){
-    if(e.target.getAttribute('key') === null){
-        render();
-    }else{
-        const filter = e.target.getAttribute('key');
-        console.log(`filter:${filter}`);
-        render(filter);
-    }
+const shop = new Shop();
+shop.render();
+
+function filterClick(e){    
+    let kind = e.target.parentNode.getAttribute('id');
+    let filter = e.target.getAttribute('key');
+    shop.render(kind, filter);
 } 
 
 document.querySelectorAll('button').forEach(button => button.addEventListener('click', filterClick));
-document.getElementById("logo").addEventListener('click', filterClick);

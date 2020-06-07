@@ -21,14 +21,13 @@
 #logo{
     display: block;
     margin: 50px auto;
-    cursor: pointer;
 }
 body{
     width: 600px;
     margin: 0 auto;
     background-color: rgb(56, 56, 63);
 }
-.byType, .byColor{
+#byType, #byColor{
     display: inline; 
 }
 nav button{
@@ -36,7 +35,7 @@ nav button{
     cursor: pointer;
     margin: 10px;
 }
-.byType > button{
+#byType > button{
     float: left;
     width: 60px;
     height: 60px;
@@ -44,7 +43,7 @@ nav button{
     background-repeat: no-repeat;
     background-color: rgb(56, 56, 63);
 }
-.byColor > button{
+#byColor > button{
     float: right;
     width: 90px;
     height: 60px;  
@@ -57,13 +56,13 @@ button:hover{
 button:focus{
     outline: 0;
 }
-button[key="t"] {
+button[key="tshirt"] {
     background-image: url('imgs/blue_t.png');
 }
-button[key="p"] {
+button[key="pants"] {
     background-image: url('imgs/blue_p.png');
 }
-button[key="s"] {
+button[key="skirt"] {
     background-image: url('imgs/blue_s.png');
 }
 button[key="blue"] {
